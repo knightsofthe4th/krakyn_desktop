@@ -1,2 +1,2 @@
 # krakyn_desktop
-Desktop client implementation of the krakyn protocol
+A desktop client implementation for the krakyn protocol
