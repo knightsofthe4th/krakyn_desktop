@@ -8,12 +8,12 @@ import (
 var gClient *m.Client
 
 type JSMessage struct {
-	Server   string `json:"server"`
-	Channel  string `json:"channel"`
+	Server    string `json:"server"`
+	Channel   string `json:"channel"`
 	Timestamp string `json:"timestamp"`
-	Username string `json:"username"`
-	Encoding string `json:"encoding"`
-	Data     string `json:"data"`
+	Username  string `json:"username"`
+	Encoding  string `json:"encoding"`
+	Data      string `json:"data"`
 }
 
 type JSChannel struct {
@@ -67,12 +67,12 @@ func onGetMessage(tm *m.Transmission, e *m.ServerEndpoint) {
 		msg := m.Deserialise[m.MessageData](tm.Data)
 
 		jsmsg := &JSMessage{
-			Server:   e.Name,
-			Channel:  msg.Channel,
+			Server:    e.Name,
+			Channel:   msg.Channel,
 			Timestamp: msg.Timestamp,
-			Username: msg.Sender,
-			Encoding: msg.Encoding,
-			Data:     string(msg.Data),
+			Username:  msg.Sender,
+			Encoding:  msg.Encoding,
+			Data:      string(msg.Data),
 		}
 
 		runtime.EventsEmit(gAppContext, "AppendMessage", jsmsg)

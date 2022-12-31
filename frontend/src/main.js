@@ -73,7 +73,9 @@ window.appendMessage = function (msg) {
     message.id = "message";
     
     var userTag = createTextElement("h2", msg.username);
+    var tsTag = createTextElement("h3", msg.timestamp);
     message.appendChild(userTag);
+    message.appendChild(tsTag);
 
     var chatContent;
 
@@ -290,9 +292,10 @@ window.loadMain = function () {
             var cIndex = getChannelIndex(sIndex, msg.channel);
 
             var message = new JSMessage();
-            message.username = msg.username;
-            message.encoding = msg.encoding;
-            message.data = msg.data;
+            message.timestamp = msg.timestamp;
+            message.username  = msg.username;
+            message.encoding  = msg.encoding;
+            message.data      = msg.data;
 
             gServers[sIndex].channels[cIndex].messages.push(message);
 
