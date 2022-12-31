@@ -16,6 +16,7 @@ class JSChannel {
 }
 
 class JSMessage {
+    timestamp = "";
     username = "";
     encoding = "";
     data = "";
@@ -110,7 +111,7 @@ window.appendMessage = function (msg) {
     chatfeed.appendChild(message);
 
     chatfeed.scrollTop = chatfeed.scrollHeight;
-    message.scrollIntoView();
+    message.scrollIntoView(false); /*changed this from blank to false*/
 };
 
 window.loadChannelContent = function (server, channel) {

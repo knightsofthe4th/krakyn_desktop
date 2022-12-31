@@ -10,6 +10,7 @@ var gClient *m.Client
 type JSMessage struct {
 	Server   string `json:"server"`
 	Channel  string `json:"channel"`
+	Timestamp string `json:"timestamp"`
 	Username string `json:"username"`
 	Encoding string `json:"encoding"`
 	Data     string `json:"data"`
@@ -68,6 +69,7 @@ func onGetMessage(tm *m.Transmission, e *m.ServerEndpoint) {
 		jsmsg := &JSMessage{
 			Server:   e.Name,
 			Channel:  msg.Channel,
+			Timestamp: msg.Timestamp,
 			Username: msg.Sender,
 			Encoding: msg.Encoding,
 			Data:     string(msg.Data),

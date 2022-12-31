@@ -20,13 +20,13 @@ html {
     background-color: var(--black);
     text-align:       center;
     color:            var(--white);
-    height:           100%;
+    height:           95%; /*changed this from 100% to 95%*/
     width:            100%
 }
 
 body {
 
-    background-size:             100% auto;
+    background-size:             100% cover;
     -webkit-backface-visibility: hidden;
     backface-visibility:         hidden;
     height:                      100%;

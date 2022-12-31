@@ -62,8 +62,7 @@ func (a *App) SendChat(server, channel, encoding, data string) string {
 
 	for _, s := range gClient.Servers {
 		if server == s.Name {
-			err := s.Transmit(m.NewTransmission(m.MESSAGE_DATA, &m.MessageData{"0", channel, encoding, []byte(data)}).Encrypt(s.SessionKey))
-
+			err := s.Transmit(m.NewTransmission(m.MESSAGE_DATA, &m.MessageData{"", "", channel, encoding, []byte(data)}).Encrypt(s.SessionKey))
 			if err != nil {
 				return err.Error()
 			}
